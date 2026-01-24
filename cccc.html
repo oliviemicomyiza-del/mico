@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Video Website</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+    }
+    header {
+        background: #333;
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header h1 {
+        margin: 0;
+    }
+    header input {
+        padding: 8px;
+        font-size: 16px;
+        width: 300px;
+    }
+    header button {
+        padding: 8px 12px;
+        font-size: 16px;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    main {
+        display: flex;
+        padding: 20px;
+    }
+    aside {
+        width: 200px;
+        background: #ddd;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    aside h3 {
+        margin-top: 0;
+    }
+    section {
+        flex: 1;
+        margin-left: 20px;
+    }
+    .video-card {
+        background: white;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .video-card img {
+        width: 120px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .video-card div {
+        flex: 1;
+    }
+    footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>My Video Site</h1>
+    <div>
+        <input type="text" id="searchInput" placeholder="Search videos...">
+        <button onclick="searchVideos()">Search</button>
+    </div>
+</header>
+
+<main>
+    <aside>
+        <h3>Categories</h3>
+        <ul>
+            <a href="#">all videos</a>
+            <a href="#">web development</a>
+            <a href="#">design</a>
+            <a href="#">marketing</a>
+        </ul>
+    </aside>
+
+    <section id="videoSection">
+        <div class="video-card">
+        
+            <div>
+                <h4>Learn HTML Basics</h4>
+                <p>HTML tutorial for beginners.</p>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <img src="https://via.placeholder.com/120x70" alt="CSS Video">
+            <div>
+                <h4>CSS Tricks</h4>
+                <p>Advanced CSS tips and tricks.</p>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <img src="https://via.placeholder.com/120x70" alt="JS Video">
+            <div>
+                <h4>JavaScript Fundamentals</h4>
+                <p>Learn JS step by step.</p>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <img src="https://via.placeholder.com/120x70" alt="React Video">
+            <div>
+                <h4>React for Beginners</h4>
+                <p>Start building apps with React.</p>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <img src="https://via.placeholder.com/120x70" alt="Node.js Video">
+            <div>
+                <h4>Node.js Tutorial</h4>
+                <p>Backend development made easy.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 My Video Site</p>
+</footer>
+
+<script>
+    const videos = [
+        {title: "Learn HTML Basics", description: "HTML tutorial for beginners."},
+        {title: "CSS Tricks", description: "Advanced CSS tips and tricks."},
+        {title: "JavaScript Fundamentals", description: "Learn JS step by step."},
+        {title: "React for Beginners", description: "Start building apps with React."},
+        {title: "Node.js Tutorial", description: "Backend development made easy."}
+    ];
+
+    function searchVideos() {
+        const query = document.getElementById("searchInput").value.toLowerCase();
+        const section = document.getElementById("videoSection");
+        section.innerHTML = "";
+
+        const filtered = videos.filter(video => 
+            video.title.toLowerCase().includes(query) || 
+            video.description.toLowerCase().includes(query)
+        );
+
+        if(filtered.length === 0) {
+            section.innerHTML = "<p>No videos found.</p>";
+        } else {
+            filtered.forEach(video => {
+                const div = document.createElement("div");
+                div.className = "video-card";
+                div.innerHTML = `
+                    <img src="https://via.placeholder.com/120x70" alt="${video.title}">
+                    <div>
+                        <h4>${video.title}</h4>
+                        <p>${video.description}</p>
+                    </div>
+                `;
+                section.appendChild(div);
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
