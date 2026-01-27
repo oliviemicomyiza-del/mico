@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #f5f5f5;
+    background: #011f47;
     color: #333;
 }
 
@@ -20,22 +20,20 @@ header {
 }
 
 nav a {
-    color: white;
+    color: rgb(2, 54, 41);
     margin-left: 20px;
     text-decoration: none;
 }
 
 .hero {
-    background: #042e3b;
+    background: #dfe6ff;
     text-align: center;
-    padding: 300px;
+    padding: 60px 20px;
 }
 
 .services {
-    padding: 100px;
+    padding: 40px;
     text-align: center;
-    
-    display: flex;
 }
 
 .cards {
@@ -53,7 +51,7 @@ nav a {
 }
 
 .contact {
-    background: #243504;
+    background: #ffffff;
     padding: 40px;
     text-align: center;
 }
@@ -76,23 +74,20 @@ button {
     border: none;
     padding: 10px;
     cursor: pointer;
-
 }
 
 button:hover {
     background: #333;
-    translate: 9s;
-    transform:translateX(-5);
 }
 
 footer {
-    background: #1e1e2f;
+    background: #03363f;
     color: white;
     text-align: center;
     padding: 15px;
 }
 .auth {
-    background: #f0f0f0;
+    background: #013517;
     padding: 40px;
     text-align: center;
     background-color: lawngreen;
